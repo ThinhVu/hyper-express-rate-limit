@@ -1,0 +1,16 @@
+# /.gitignore
+# Tells Git to ignore these files
+
+node_modules/
+dist/
+coverage/
+
+.vscode/
+.idea/
+
+*.log
+*.tmp
+*.bak
+*.tgz
+
+test/external/imports/*/*/package-lock.json
