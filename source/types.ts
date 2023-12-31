@@ -1,7 +1,7 @@
 // /source/types.ts
 // All the types used by this package
 
-import type { Request, Response, MiddlewareNext as NextFunction, MiddlewareHandler as RequestHandler } from 'hyper-express'
+import type { Request, Response, MiddlewareHandler as RequestHandler } from 'hyper-express'
 import type { Validations } from './validations.js'
 
 /**
@@ -37,15 +37,13 @@ export type ValueDeterminingMiddleware<T> = (
  *
  * @param request {Request} - The Express request object.
  * @param response {Response} - The Express response object.
- * @param next {NextFunction} - The Express `next` function, can be called to skip responding.
  * @param optionsUsed {Options} - The options used to set up the middleware.
  */
 export type RateLimitExceededEventHandler = (
 	request: Request,
 	response: Response,
-	next: NextFunction,
 	optionsUsed: Options,
-) => void
+) => Promise<void>
 
 /**
  * Event callback that is triggered on a client's first request that exceeds the limit

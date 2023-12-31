@@ -221,9 +221,8 @@ const parseOptions = (passedOptions: Partial<Options>): Configuration => {
 			return request.ip!
 		},
 		async handler(
-			request: Request,
-			response: Response,
-			_next: NextFunction,
+			request,
+			response,
 			_optionsUsed: Options,
 		): Promise<void> {
 			// Set the response status code.
@@ -315,11 +314,10 @@ const rateLimit = (
 
 	// Then return the actual middleware
 	const middleware = handleAsyncErrors(
-		async (request: Request, response: Response, next: NextFunction) => {
+		async (request: Request, response: Response) => {
 			// First check if we should skip the request
 			const skip = await config.skip(request, response)
 			if (skip) {
-				next()
 				return
 			}
 
@@ -421,11 +419,9 @@ const rateLimit = (
 					setRetryAfterHeader(response, info, config.windowMs)
 				}
 
-				config.handler(request, response, next, options)
+				await config.handler(request, response, options)
 				return
 			}
-
-			next()
 		},
 	)
 

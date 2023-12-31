@@ -68,13 +68,14 @@
 		"test:lib": "jest",
 		"test:ext": "cd test/external/ && bash run-all-tests",
 		"test": "run-s lint test:lib",
-		"pre-commit": "lint-staged",
 		"prepare": "run-s compile && husky install config/husky"
 	},
 	"peerDependencies": {
 		"hyper-express": "^6.14.5"
 	},
 	"devDependencies": {
+		"@types/busboy": "^1.5.3",
+		"@types/range-parser": "^1.2.7",
 		"@express-rate-limit/prettier": "1.1.1",
 		"@express-rate-limit/tsconfig": "1.0.2",
 		"@jest/globals": "29.7.0",
@@ -93,37 +94,7 @@
 		"supertest": "6.3.3",
 		"ts-jest": "29.1.1",
 		"ts-node": "10.9.1",
-		"typescript": "5.2.2",
-		"xo": "0.56.0"
+		"typescript": "5.2.2"
 	},
-	"xo": {
-		"prettier": true,
-		"rules": {
-			"@typescript-eslint/no-empty-function": 0,
-			"@typescript-eslint/no-dynamic-delete": 0,
-			"@typescript-eslint/no-confusing-void-expression": 0,
-			"@typescript-eslint/consistent-indexed-object-style": [
-				"error",
-				"index-signature"
-			],
-			"n/no-unsupported-features/es-syntax": 0
-		},
-		"overrides": [
-			{
-				"files": "test/library/*.ts",
-				"rules": {
-					"@typescript-eslint/no-unsafe-argument": 0,
-					"@typescript-eslint/no-unsafe-assignment": 0
-				}
-			}
-		],
-		"ignore": [
-			"test/external"
-		]
-	},
-	"prettier": "@express-rate-limit/prettier",
-	"lint-staged": {
-		"{source,test}/**/*.ts": "xo --fix",
-		"**/*.{json,yaml,md}": "prettier --write "
-	}
+	"prettier": "@express-rate-limit/prettier"
 }
