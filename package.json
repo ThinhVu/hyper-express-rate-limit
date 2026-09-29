@@ -19,5 +19,8 @@
   "homepage": "https://github.com/ThinhVu/hyper-express-rate-limit#readme",
   "peerDependencies": {
     "hyper-express": "^6.15.2"
+  },
+  "devDependencies": {
+    "hyper-express": "^6.15.2"
   }
 }
