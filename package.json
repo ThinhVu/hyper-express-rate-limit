@@ -1,0 +1,23 @@
+{
+  "name": "hyper-express-rate-limit",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/index.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ThinhVu/hyper-express-rate-limit.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ThinhVu/hyper-express-rate-limit/issues"
+  },
+  "homepage": "https://github.com/ThinhVu/hyper-express-rate-limit#readme",
+  "peerDependencies": {
+    "hyper-express": "^6.15.2"
+  }
+}
